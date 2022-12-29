@@ -117,7 +117,7 @@ class Experiment:
         test_file = open("test.tsv", "a", encoding="utf-8")
         test_file.write("Question\tGold_Answer\tModel_Answer\n")
 
-        for x, y in self.test_loader:
+        for x, y in self.test_set:
 
             tokenized = self.tokenizer.encode(x.lower(), bos=True, eos=True)
             padded = tokenized + [pad_index] * (max_length - len(tokenized))
